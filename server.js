@@ -6,7 +6,7 @@ const GITHUB_SECRET_API_KEY = process.env.GITHUB_SECRET_API_KEY;
 
 // Define a route to retrieve the API key
 app.get('/api/key', (req, res) => {
-  res.json({ apiKey: GITHUB_SECRET_API_KEY });
+  res.json({ apiKey: ADAFRUIT });
 });
 
 // Start the server
