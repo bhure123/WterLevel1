@@ -125,16 +125,21 @@
          });
    }
 
-   // Function to fetch the API key from GitHub secret
-   function getAIOKey() {
-      return fetch('/api/key')
-      .then(response => response.json())
-      .then(data => data.apiKey)
-      .catch(error => {
+  // Function to fetch the API key from GitHub secret
+function getAIOKey() {
+    return fetch('/api/key')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to fetch API key');
+        }
+        return response.json();
+    })
+    .then(data => data.apiKey)
+    .catch(error => {
         console.error('Error fetching API key:', error);
-      });
-  }
-   
+    });
+}
+
 
    // Function to display data in the table
    function displayData(data) {
